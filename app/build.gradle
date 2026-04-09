@@ -1,0 +1,106 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
+    // alias(libs.plugins.google.services) // Disabled until google-services.json is added
+}
+
+android {
+    namespace 'com.trendpulse.trendpulse'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.trendpulse.trendpulse"
+        minSdk 26
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
+    buildFeatures {
+        compose true
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    //Core Android
+    implementation(libs.core.ktx)
+    implementation(libs.appcompat)
+    implementation(libs.fragment.ktx)
+    implementation(libs.material)
+
+    // Jetpack Compose UI
+    implementation(libs.ui)
+    implementation(libs.foundation)
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.material.icons.extended)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.runtime.livedata)
+
+    // Lifecycle and State
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    //Networking
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.okhttp)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Paging
+    implementation(libs.paging.runtime)
+    implementation(libs.paging.runtime.ktx)
+    implementation(libs.paging.compose)
+
+    // Room Database
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(libs.room.paging)
+    ksp(libs.room.compiler)
+
+    // Machine Learning (TensorFlow Lite)
+    implementation(libs.tensorflow.lite)
+    implementation(libs.tensorflow.lite.support)
+    implementation libs.tensorflow.lite.task.text
+
+    // WorkManager
+    implementation(libs.work.runtime.ktx)
+
+    // Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.messaging)
+    implementation(libs.firebase.analytics)
+
+    // Maps and Location
+    implementation(libs.google.maps)
+    implementation(libs.play.services.location)
+    implementation(libs.maps.compose)
+
+    // testing
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+
+}
+

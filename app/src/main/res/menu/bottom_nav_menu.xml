@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_comments"
+        android:title="Comments"
+        android:icon="@android:drawable/ic_menu_info_details" />
+
+    <item
+        android:id="@+id/nav_graphs"
+        android:title="Analytics"
+        android:icon="@android:drawable/ic_menu_sort_by_size" />
+
+    <item
+        android:id="@+id/nav_device"
+        android:title="Device"
+        android:icon="@android:drawable/ic_menu_preferences" />
+
+    <item
+        android:id="@+id/nav_map"
+        android:title="Map"
+        android:icon="@android:drawable/ic_dialog_map" />
+
+    <item
+        android:id="@+id/nav_test"
+        android:title="Test ML"
+        android:icon="@android:drawable/ic_menu_manage" />
+
+</menu>
