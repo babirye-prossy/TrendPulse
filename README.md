@@ -58,7 +58,7 @@ override fun getRefreshKey(state: PagingState<Int, Comment>): Int? {
 }
 ```
 
-#### `CommentViewModel.startScraping()`
+##### `CommentViewModel.startScraping()`
 Polls the server every 4 seconds until `stage != "collecting"` before triggering the pager. This keeps `PagingSource` clean — it only runs when data is confirmed ready.
 
 ```kotlin
@@ -86,7 +86,7 @@ fun startScraping(url: String) {
 }
 ```
 
-#### Stable `comments` Flow
+##### Stable `comments` Flow
 Rebuilt only when `_activeUrl` changes. `cachedIn` survives recomposition.
 
 ```kotlin
